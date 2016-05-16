@@ -1,0 +1,36 @@
+{
+  "name": "handlebars-helpers-web-example",
+  "description": "Example of using handlebars-helpers in a web browser.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/doowb/handlebars-helpers-web-example",
+  "author": "Brian Woodward (https://github.com/doowb)",
+  "repository": "doowb/handlebars-helpers-web-example",
+  "bugs": {
+    "url": "https://github.com/doowb/handlebars-helpers-web-example/issues"
+  },
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "gulp-format-md": "*",
+    "mocha": "*"
+  },
+  "keywords": [],
+  "verb": {
+    "layout": "default",
+    "plugins": ["gulp-format-md"],
+    "related": {
+      "list": []
+    },
+    "reflinks": ["verb"]
+  }
+}
