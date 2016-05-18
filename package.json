@@ -20,10 +20,10 @@
   "devDependencies": {
     "browser-sync": "^2.12.8",
     "browserify": "^13.0.1",
+    "delete": "^0.3.2",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-format-md": "*",
     "gulp-gh-pages": "^0.5.4",
-    "opn": "^4.0.2",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   },
