@@ -6,7 +6,7 @@ Example using handlebars-helpers in a web browser with browserify.
 
 This is a simple example showing how to use [browserify](https://github.com/substack/node-browserify) to bundle up an app using [handlebars-helpers](https://github.com/assemble/handlebars-helpers).
 
-The `app` can be found in [src/app.js][./src/app.js] and is used in [src/index.html][./src/index.html].
+The `app` can be found in [src/app.js](./src/app.js) and is used in [src/index.html](./src/index.html).
 
 To build the `app` run the following command:
 
