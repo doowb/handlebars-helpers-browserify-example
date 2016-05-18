@@ -4,9 +4,9 @@ var browserSync = require('browser-sync').create();
 var browserify = require('browserify');
 var ghPages = require('gulp-gh-pages');
 var gulp = require('gulp');
+var del = require('delete');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
-var opn = require('opn');
 
 gulp.task('browserify', function () {
   var b = browserify({
@@ -24,6 +24,13 @@ gulp.task('browserify', function () {
     .pipe(buffer())
     .pipe(gulp.dest('./_gh_pages/'))
     .pipe(browserSync.stream());
+});
+
+gulp.task('clean', function(cb) {
+  del('./.publish', {force: true}, function(err) {
+    if (err) return cb(err);
+    del('./_gh_pages', {force: true}, cb);
+  });
 });
 
 gulp.task('copy', function() {
@@ -48,7 +55,7 @@ gulp.task('watch', function() {
 
 gulp.task('deploy', function() {
   return gulp.src('_gh_pages/**/*')
-    .pipe(ghPages({push: false}));
+    .pipe(ghPages());
 });
 
 gulp.task('build', gulp.parallel(['browserify', 'copy']));
