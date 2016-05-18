@@ -1,36 +1,45 @@
 {
-  "name": "handlebars-helpers-web-example",
-  "description": "Example of using handlebars-helpers in a web browser.",
+  "name": "handlebars-helpers-browserify-example",
+  "description": "Example using handlebars-helpers in a web browser with browserify.",
   "version": "0.1.0",
-  "homepage": "https://github.com/doowb/handlebars-helpers-web-example",
+  "homepage": "https://github.com/doowb/handlebars-helpers-browserify-example",
   "author": "Brian Woodward (https://github.com/doowb)",
-  "repository": "doowb/handlebars-helpers-web-example",
+  "repository": "doowb/handlebars-helpers-browserify-example",
   "bugs": {
-    "url": "https://github.com/doowb/handlebars-helpers-web-example/issues"
+    "url": "https://github.com/doowb/handlebars-helpers-browserify-example/issues"
   },
   "license": "MIT",
-  "files": [
-    "index.js"
-  ],
-  "main": "index.js",
+  "main": "gulpfile.js",
   "engines": {
     "node": ">=0.10.0"
   },
-  "scripts": {
-    "test": "mocha"
+  "dependencies": {
+    "handlebars-helpers": "^0.6.1"
   },
-  "dependencies": {},
   "devDependencies": {
+    "browserify": "^13.0.1",
+    "gulp": "^3.9.1",
     "gulp-format-md": "*",
-    "mocha": "*"
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
   },
   "keywords": [],
   "verb": {
-    "layout": "default",
-    "plugins": ["gulp-format-md"],
-    "related": {
-      "list": []
-    },
-    "reflinks": ["verb"]
+    "toc": false,
+    "layout": "common",
+    "tasks": [
+      "readme"
+    ],
+    "plugins": [
+      "gulp-format-md"
+    ],
+    "reflinks": [
+      "verb",
+      "browserify",
+      "handlebars-helpers"
+    ],
+    "lint": {
+      "reflinks": true
+    }
   }
 }
