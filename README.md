@@ -1,5 +1,4 @@
-# handlebars-helpers-browserify-example [![NPM version](https://img.shields.io/npm/v/handlebars-helpers-browserify-example.svg?style=flat)](https://www.npmjs.com/package/handlebars-helpers-browserify-example) [![NPM downloads](https://img.shields.io/npm/dm/handlebars-helpers-browserify-example.svg?style=flat)](https://npmjs.org/package/handlebars-helpers-browserify-example) [![Build Status](https://img.shields.io/travis/doowb/handlebars-helpers-browserify-example.svg?style=flat)](https://travis-ci.org/doowb/handlebars-helpers-browserify-example)
-
+# handlebars-helpers-browserify-example
 Example using handlebars-helpers in a web browser with browserify.
 
 ## What is this?
