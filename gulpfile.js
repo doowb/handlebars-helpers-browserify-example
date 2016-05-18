@@ -1,13 +1,16 @@
 'use strict';
 
+var browserSync = require('browser-sync').create();
 var browserify = require('browserify');
+var ghPages = require('gulp-gh-pages');
 var gulp = require('gulp');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
+var opn = require('opn');
 
 gulp.task('browserify', function () {
   var b = browserify({
-    entries: './app.js',
+    entries: './src/app.js',
     debug: true,
     // Tell browserify that Handlebars is loaded already
     external: 'Handlebars'
@@ -19,7 +22,35 @@ gulp.task('browserify', function () {
   return b.bundle()
     .pipe(source('app.js'))
     .pipe(buffer())
-    .pipe(gulp.dest('./dist/'));
+    .pipe(gulp.dest('./_gh_pages/'))
+    .pipe(browserSync.stream());
 });
 
-gulp.task('default', ['browserify']);
+gulp.task('copy', function() {
+  return gulp.src('./src/index.html')
+    .pipe(gulp.dest('_gh_pages'))
+    .pipe(browserSync.stream());
+});
+
+gulp.task('serve', function(cb) {
+  browserSync.init({
+    port: 8080,
+    startPath: 'index.html',
+    server: {
+      baseDir: '_gh_pages'
+    }
+  }, cb);
+});
+
+gulp.task('watch', function() {
+  gulp.watch(['./src/**/*'], gulp.series('build'));
+});
+
+gulp.task('deploy', function() {
+  return gulp.src('_gh_pages/**/*')
+    .pipe(ghPages({push: false}));
+});
+
+gulp.task('build', gulp.parallel(['browserify', 'copy']));
+gulp.task('dev', gulp.series('build', gulp.parallel('serve', 'watch')));
+gulp.task('default', gulp.series('build'));
