@@ -38,9 +38,10 @@
       "gulp-format-md"
     ],
     "reflinks": [
-      "verb",
       "browserify",
-      "handlebars-helpers"
+      "handlebars-helpers",
+      "verb",
+      "browser-sync"
     ],
     "lint": {
       "reflinks": true
