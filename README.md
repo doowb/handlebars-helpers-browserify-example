@@ -6,7 +6,7 @@ Example using handlebars-helpers in a web browser with browserify.
 
 This is a simple example showing how to use [browserify](https://github.com/substack/node-browserify) to bundle up an app using [handlebars-helpers](https://github.com/assemble/handlebars-helpers).
 
-The `app` can be found in [app.js][./app.js] and is used in [index.html][./index.html].
+The `app` can be found in [src/app.js][./src/app.js] and is used in [src/index.html][./src/index.html].
 
 To build the `app` run the following command:
 
@@ -14,9 +14,17 @@ To build the `app` run the following command:
 $ gulp
 ```
 
-This will browserify `app.js` and create a distribution file in [dist/app.js][./dist/app.js].
+This will browserify `app.js` and create a distribution file in `_gh_pages/app.js`.
 
-Load `index.html` in a browser and open up the console to see sample output.
+Load `_gh_pages/index.html` in a browser and open up the console to see sample output.
+
+## Dev
+
+Use the following command to run a [browser-sync](http://www.browsersync.io/) server and have live-reloads. Making changes to `src` files will rebuild and reload the example.
+
+```sh
+$ gulp dev
+```
 
 ## Contributing
 
