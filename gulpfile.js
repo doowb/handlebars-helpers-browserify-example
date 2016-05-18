@@ -26,12 +26,15 @@ gulp.task('browserify', function () {
     .pipe(browserSync.stream());
 });
 
-gulp.task('clean', function(cb) {
-  del('./.publish', {force: true}, function(err) {
-    if (err) return cb(err);
-    del('./_gh_pages', {force: true}, cb);
-  });
+gulp.task('cleanPublish', function(cb) {
+  del('./.publish', {force: true}, cb);
 });
+
+gulp.task('cleanDest', function(cb) {
+  del('./_gh_pages', {force: true}, cb);
+});
+
+gulp.task('clean', gulp.parallel(['cleanPublish', 'cleanDest']));
 
 gulp.task('copy', function() {
   return gulp.src('./src/index.html')
@@ -53,11 +56,12 @@ gulp.task('watch', function() {
   gulp.watch(['./src/**/*'], gulp.series('build'));
 });
 
-gulp.task('deploy', function() {
+gulp.task('push', function() {
   return gulp.src('_gh_pages/**/*')
     .pipe(ghPages());
 });
+gulp.task('deploy', gulp.series(['push', 'cleanPublish']));
 
-gulp.task('build', gulp.parallel(['browserify', 'copy']));
+gulp.task('build', gulp.series('clean', gulp.parallel(['browserify', 'copy'])));
 gulp.task('dev', gulp.series('build', gulp.parallel('serve', 'watch')));
 gulp.task('default', gulp.series('build'));
