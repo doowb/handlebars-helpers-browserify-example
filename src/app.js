@@ -14,9 +14,10 @@ $(function() {
 
   name.focus();
 
+  var tmpl = "<h2>{{dashcase name}}</h2>";
+  var fn = Handlebars.compile(tmpl);
+
   function render(data) {
-    var tmpl = "<h2>{{dashcase name}}</h2>";
-    var fn = Handlebars.compile(tmpl);
     var content = fn(data);
     $('#content').html(content);
   }
