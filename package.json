@@ -27,8 +27,8 @@
     "gulp": "^4.0.0",
     "gulp-format-md": "*",
     "gulp-gh-pages": "^0.5.4",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0"
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
   },
   "keywords": [
     "browserify",
